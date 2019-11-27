@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  anime-shows:
+    image: anime-shows
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"
+  mongo:
+    container_name: mongo
+    image: mongo:3.4.23-xenial
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: shows
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
